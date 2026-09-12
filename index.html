@@ -3,427 +3,457 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YEONNI'S FOOD - 신선한 샐러드</title>
+  <title>챔프몰</title>
+
+  <!-- 예쁜 글꼴 불러오기 (인터넷 연결 필요) -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== 공통 설정 ===== */
+    /* ===== 기본 설정 ===== */
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: smooth;   /* 메뉴 누르면 부드럽게 이동 */
     }
     body {
       margin: 0;
       font-family: "맑은 고딕", sans-serif;
-      background-color: #F4FBF0;
-      color: #35502F;
+      color: #2E2E2E;
+
+      /* 배경 사진 : 숲과 도시가 어우러진 풍경 (Unsplash 무료 사진) */
+      /* 사진 위에 연한 녹색 막을 한 겹 덮어서 글씨가 잘 보이게 함 */
+      background-image:
+        linear-gradient(rgba(238, 244, 233, 0.45), rgba(238, 244, 233, 0.45)),
+        url("https://images.unsplash.com/photo-1753199694052-2d6f8a6aa274?w=1920&q=80");
+      background-size: cover;        /* 화면 전체를 꽉 채움 */
+      background-position: center;   /* 가운데를 기준으로 보여줌 */
+      background-attachment: fixed;  /* 스크롤해도 사진은 고정 */
+      background-color: #EEF4E9;     /* 사진이 안 뜰 때 쓸 색 */
+    }
+    /* 제목에 쓸 우아한 글꼴 */
+    h1, h2, h3 {
+      font-family: "Noto Serif KR", "바탕", serif;
+      font-weight: 600;
     }
 
-    /* ===== 맨 위: 쇼핑몰 이름 ===== */
+    /* ===== 맨 위 (쇼핑몰 이름) ===== */
     header {
-      background-color: #7CC576;
-      color: white;
+      background-color: #1E4D2B;  /* 깊은 숲 녹색 */
+      color: #FFFFFF;
       text-align: center;
-      padding: 30px 20px;
+      padding: 55px 20px 45px 20px;
     }
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 46px;
+      letter-spacing: 10px;
+    }
+    /* 이름 아래 작은 금색 줄 */
+    .line {
+      width: 60px;
+      height: 2px;
+      background-color: #C9A961;  /* 골드 */
+      margin: 20px auto;
     }
     header p {
-      margin: 8px 0 0 0;
-      font-size: 16px;
-    }
-
-    /* 영문 쇼핑몰 이름 */
-    .eng-name {
-      font-size: 40px;
-      letter-spacing: 5px;
       margin: 0;
+      font-size: 16px;
+      letter-spacing: 3px;
+      color: #C9A961;
     }
 
-    /* ===== 메뉴 4개 ===== */
+    /* ===== 메뉴 ===== */
     nav {
-      background-color: #DFF3D8;
+      background-color: #FFFFFF;
       text-align: center;
-      padding: 15px;
+      padding: 20px 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      position: sticky;   /* 스크롤해도 맨 위에 붙어 있게 */
+      top: 0;
+      z-index: 10;
     }
     nav a {
-      color: #4B8A45;
+      color: #2E2E2E;
       text-decoration: none;
-      font-weight: bold;
-      margin: 0 15px;
-      font-size: 16px;
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin: 0 16px;
+      padding-bottom: 5px;
     }
+    /* 메뉴에 마우스를 올리면 금색 밑줄 */
     nav a:hover {
-      color: #7CC576;
+      color: #1E4D2B;
+      border-bottom: 2px solid #C9A961;
     }
 
     /* ===== 큰 배너 ===== */
     .banner {
-      background-color: #C9EBBF;
+      /* 살짝 투명하게 해서 뒤 배경 사진이 비쳐 보이게 함 */
+      background-color: rgba(217, 232, 208, 0.40);
       text-align: center;
-      padding: 50px 20px;
+      padding: 95px 20px;
     }
     .banner h2 {
-      font-size: 28px;
-      margin: 0 0 10px 0;
+      font-size: 40px;
+      letter-spacing: 4px;
+      color: #1E4D2B;
+      margin: 0 0 18px 0;
     }
     .banner p {
-      font-size: 18px;
-      margin: 0 0 25px 0;
+      font-size: 19px;
+      color: #5A6B55;
+      letter-spacing: 1px;
+      margin: 0 0 40px 0;
     }
-    /* 배너 사진 */
-    .banner img {
-      width: 100%;
-      max-width: 700px;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 15px;
-      margin-bottom: 25px;
-    }
-
-    /* ===== 버튼 ===== */
-    button {
-      background-color: #7CC576;
-      color: white;
+    .banner button {
+      background-color: #1E4D2B;
+      color: #FFFFFF;
       border: none;
-      border-radius: 25px;
-      padding: 14px 30px;
-      font-size: 16px;
-      font-weight: bold;
+      padding: 18px 55px;
+      font-size: 18px;
+      letter-spacing: 3px;
       cursor: pointer;
+      transition: 0.3s;   /* 색이 부드럽게 바뀌게 */
     }
-    button:hover {
-      background-color: #5FA95A;
+    .banner button:hover {
+      background-color: #C9A961;  /* 마우스 올리면 금색 */
     }
 
-    /* ===== 이벤트 안내 (3개 주문 시 1개 서비스) ===== */
-    .promo {
-      background-color: #4B8A45;
-      color: white;
-      text-align: center;
-      padding: 22px 20px;
+    /* ===== 베스트 추천 영역 ===== */
+    .best-area {
+      background-color: rgba(255, 255, 255, 0.90);
+      padding: 60px 20px 55px 20px;
+      margin-bottom: 20px;
     }
-    .promo h3 {
-      font-size: 20px;
+    .best-area h2 {
+      text-align: center;
+      font-size: 30px;
+      letter-spacing: 5px;
+      color: #1E4D2B;
       margin: 0 0 8px 0;
+      scroll-margin-top: 80px;   /* 메뉴에 가려지지 않게 여백 */
     }
-    .promo p {
+    .best-area p.best-sub {
+      text-align: center;
       font-size: 15px;
-      line-height: 1.7;
-      margin: 0;
+      color: #7A8A75;
+      letter-spacing: 2px;
+      margin: 0 0 45px 0;
     }
-    /* 이벤트 문구 강조 */
-    .promo .point {
-      background-color: #FFD400;
-      color: #35502F;
+    /* 베스트 카드는 조금 더 크게 */
+    .best-card {
+      width: 300px;
+      border: 2px solid #C9A961;   /* 금색 테두리로 강조 */
+    }
+    .best-card img {
+      height: 300px;
+    }
+    /* 1위 · 2위 · 3위 순위 딱지 */
+    .rank {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background-color: #1E4D2B;
+      color: #C9A961;
+      font-size: 14px;
       font-weight: bold;
-      padding: 2px 10px;
-      border-radius: 12px;
+      letter-spacing: 1px;
+      padding: 6px 12px;
+      border-radius: 3px;
+      z-index: 2;
+    }
+    /* 추천 이유 한 줄 */
+    .reason {
+      color: #5A6B55;
+      font-size: 13px;
+      margin: 0 18px 16px 18px;
+      line-height: 1.6;
     }
 
-    /* ===== 검색창 (상품 목록 위, 가운데) ===== */
-    .search-box {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 25px 20px 0 20px;
+    /* ===== 카테고리 고르는 버튼 ===== */
+    .filter-area {
       text-align: center;
+      padding: 45px 20px 10px 20px;
+      scroll-margin-top: 70px;   /* 메뉴에 가려지지 않게 여백 */
     }
-    #searchInput {
-      width: 280px;
-      padding: 10px 16px;
-      font-size: 15px;
-      color: #35502F;
-      border: 2px solid #C9EBBF;
-      border-radius: 20px;
-    }
-    /* 검색 결과가 없을 때 보여줄 글 */
-    .no-result {
-      display: none;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 16px;
-      color: #4B8A45;
-      background-color: #F4FBF0;
-    }
-
-    /* ===== 카테고리 버튼 ===== */
-    .category-box {
-      text-align: center;
-      padding: 30px 20px 0 20px;
-    }
-    /* 검정색 카테고리 버튼 */
-    .category-btn {
-      background-color: #222222;
+    .filter-btn {
+      background-color: rgba(255, 255, 255, 0.85);
+      color: #1E4D2B;
+      border: 1px solid #1E4D2B;
+      padding: 13px 34px;
       margin: 5px;
+      font-size: 16px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    /* 지금 고른 카테고리 버튼 */
-    .category-btn.active {
-      background-color: #7CC576;
+    /* 지금 고른 버튼은 색을 다르게 (진한 녹색 + 흰 글씨) */
+    .filter-btn.active {
+      background-color: #1E4D2B;
+      color: #FFFFFF;
+      border-color: #1E4D2B;
+      font-weight: bold;
     }
-    .category-btn:hover {
-      background-color: #000000;
+    /* 고르지 않은 버튼에 마우스를 올렸을 때 */
+    .filter-btn:hover {
+      background-color: #C9A961;
+      border-color: #C9A961;
+      color: #FFFFFF;
     }
 
-    /* ===== 상품 구역 (샐러드 / 샐러드볼 / 드레싱 공통) ===== */
-    .products {
+    /* ===== 카테고리 제목 ===== */
+    .product-title {
       text-align: center;
-      padding: 50px 20px;
+      font-size: 30px;
+      letter-spacing: 5px;
+      color: #FFFFFF;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);   /* 사진 위에서도 잘 보이게 */
+      margin: 75px 0 10px 0;
+      scroll-margin-top: 80px;   /* 메뉴에 가려지지 않게 여백 */
     }
-    .products h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
+    .product-sub {
+      text-align: center;
+      font-size: 15px;
+      color: #F0F5EE;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+      letter-spacing: 2px;
+      margin: 0 0 45px 0;
     }
-    /* 구역 설명 한 줄 */
-    .section-desc {
-      font-size: 16px;
-      margin: 0 0 30px 0;
-    }
-    .card-box {
+
+    /* ===== 상품 목록 ===== */
+    .product-list {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-wrap: wrap;   /* 자리가 없으면 아랫줄로 내려감 */
+      gap: 30px;
+      padding: 0 30px 40px 30px;
     }
     .card {
-      background-color: white;
-      border: 2px solid #DFF3D8;
-      border-radius: 15px;
-      width: 240px;
-      padding: 15px;
-      /* 오른쪽 아래 별 버튼이 들어갈 자리 */
-      padding-bottom: 50px;
-      /* 베스트 딱지의 기준이 되는 위치 */
-      position: relative;
+      background-color: #FFFFFF;
+      width: 260px;
+      padding-bottom: 28px;
+      text-align: center;
+      border-radius: 4px;
+      box-shadow: 0 3px 12px rgba(30, 77, 43, 0.10);
+      transition: 0.3s;
+      position: relative;   /* 할인 딱지 위치 기준 */
+      overflow: hidden;
     }
-    /* 맨 위 찜한 개수 표시 */
-    .wish-count {
-      background-color: #2E7BE5;
-      color: white;
-      display: inline-block;
-      margin-top: 12px;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 15px;
-      font-weight: bold;
+    /* 카드에 마우스를 올리면 살짝 떠오르게 */
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(30, 77, 43, 0.18);
     }
-
-    /* 찜하기 별 버튼 - 오른쪽 아래, 파랑 */
-    .heart-btn {
-      position: absolute;
-      bottom: 10px;
-      right: 12px;
-      background-color: transparent;
-      border: none;
-      color: #2E7BE5;
-      font-size: 26px;
-      padding: 0;
-      line-height: 1;
-      cursor: pointer;
-    }
-    /* 2단계: 파란 별 */
-    .heart-btn.on {
-      color: #2E7BE5;
-    }
-    /* 3단계: 진한 파란 별 */
-    .heart-btn.dark {
-      color: #0B3C87;
-    }
-    .heart-btn:hover {
-      background-color: transparent;
-      opacity: 0.7;
-    }
-
-    /* 베스트 딱지 (BEST) - 오른쪽 위, 빨강 */
-    .best-tag {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      background-color: #E23B3B;
-      color: white;
-      font-size: 13px;
-      font-weight: bold;
-      padding: 5px 12px;
-      border-radius: 20px;
-    }
-
-    /* 새 상품 딱지 (NEW) */
-    .new-tag {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background-color: #2E7BE5;
-      color: white;
-      font-size: 13px;
-      font-weight: bold;
-      padding: 5px 12px;
-      border-radius: 20px;
-    }
-
     /* 상품 사진 */
     .card img {
       width: 100%;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 10px;
-      /* 사진에 부드러운 그림자 넣기 */
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      height: 260px;
+      object-fit: cover;   /* 사진이 찌그러지지 않게 잘라서 채움 */
+      display: block;
+    }
+    /* 할인율 딱지 (사진 왼쪽 위) */
+    .badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #C9443A;   /* 눈에 확 띄는 빨강 */
+      color: #FFFFFF;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.1;
+      letter-spacing: 0;
+      padding: 14px 16px;
+      z-index: 2;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    }
+    /* 딱지 안의 작은 OFF 글씨 */
+    .badge small {
+      display: block;
+      font-size: 11px;
+      font-weight: normal;
+      letter-spacing: 2px;
+      margin-top: 2px;
+    }
+    /* 가격 옆에 붙는 할인율 */
+    .percent {
+      color: #C9443A;
+      font-size: 22px;
+      font-weight: bold;
+      margin-right: 8px;
     }
     .card h3 {
-      font-size: 18px;
-      margin: 15px 0 10px 0;
+      font-size: 17px;
+      letter-spacing: 0.5px;
+      margin: 22px 18px 12px 18px;
     }
     .old-price {
-      color: #AAAAAA;
-      text-decoration: line-through;
+      color: #B0B0B0;
+      text-decoration: line-through;  /* 가격에 줄 긋기 */
       font-size: 14px;
       margin: 0;
     }
     .new-price {
-      color: #5FA95A;
-      font-size: 20px;
+      color: #1E4D2B;
+      font-size: 22px;
       font-weight: bold;
-      margin: 5px 0 15px 0;
+      margin: 6px 0 20px 0;
     }
-
-    /* 할인율 표시 (노란색) */
-    .sale {
-      background-color: #FFD400;
-      color: #5A4B00;
-      font-size: 14px;
-      font-weight: bold;
-      padding: 3px 8px;
-      border-radius: 8px;
-      margin-right: 6px;
-    }
-
-    /* ===== 드레싱 · 샐러드버거 · 샌드위치 구역: 카드 5개를 한 줄로 ===== */
-    /* 카드를 조금 작게 만들어 한 줄에 다 들어가게 함 */
-    #dressing .card,
-    #burger .card,
-    #sandwich .card {
-      width: 190px;
-    }
-    #dressing .card img,
-    #burger .card img,
-    #sandwich .card img {
-      height: 140px;
-    }
-    #dressing .card h3,
-    #burger .card h3,
-    #sandwich .card h3 {
-      font-size: 16px;
-    }
-
-    /* ===== 가운데 구역만 배경색 다르게 ===== */
-    .bowl-section {
-      background-color: #EAF7E4;
-    }
-
-    /* ===== 쇼핑몰 소개 ===== */
-    .about {
-      text-align: center;
-      padding: 60px 20px;
+    .card button {
       background-color: #FFFFFF;
+      color: #1E4D2B;
+      border: 1px solid #1E4D2B;
+      padding: 11px 32px;
+      font-size: 15px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    .about h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
+    .card button:hover {
+      background-color: #1E4D2B;
+      color: #FFFFFF;
     }
-    .about-desc {
-      font-size: 16px;
-      line-height: 1.8;
-      margin: 0 auto 35px auto;
-      max-width: 620px;
-    }
-    /* 만드는 순서 3단계 */
-    .step-box {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .step {
-      background-color: #F4FBF0;
-      border: 2px solid #DFF3D8;
-      border-radius: 15px;
-      width: 200px;
-      padding: 25px 15px;
-    }
-    /* 단계 번호 동그라미 */
-    .step-num {
-      display: inline-block;
-      background-color: #7CC576;
-      color: white;
-      font-weight: bold;
-      width: 32px;
-      height: 32px;
-      line-height: 32px;
-      border-radius: 50%;
-      margin-bottom: 12px;
-    }
-    .step h3 {
-      font-size: 18px;
-      margin: 0 0 8px 0;
-    }
-    .step p {
+
+    /* ===== 맨 위로 가기 버튼 ===== */
+    .top-button {
+      display: block;
+      width: 150px;
+      margin: 0 auto 60px auto;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      background-color: rgba(30, 77, 43, 0.35);
+      padding: 12px;
       font-size: 14px;
-      line-height: 1.7;
-      margin: 0;
+      letter-spacing: 2px;
+      text-align: center;
+      text-decoration: none;
     }
-    /* 배송 안내 상자 */
-    .delivery-note {
-      display: inline-block;
-      background-color: #FFF6CC;
-      border: 2px dashed #FFD400;
-      border-radius: 15px;
-      padding: 20px 30px;
-      margin-top: 35px;
+
+    /* ===== 장바구니 여는 버튼 (화면 오른쪽 아래 고정) ===== */
+    .cart-button {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      background-color: #1E4D2B;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 40px;
+      padding: 16px 26px;
       font-size: 16px;
-      line-height: 1.8;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      z-index: 20;
     }
-    /* 3일 강조 */
-    .days {
-      color: #E5732A;
-      font-size: 20px;
+    /* 버튼 안의 담긴 개수 */
+    .cart-button span {
+      background-color: #C9443A;
+      border-radius: 20px;
+      padding: 2px 9px;
+      margin-left: 6px;
       font-weight: bold;
     }
 
-    /* ===== 맨 아래: 연락처 ===== */
-    footer {
-      background-color: #35502F;
-      color: #DFF3D8;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 15px;
-      line-height: 1.9;
+    /* ===== 장바구니 창 ===== */
+    .cart-box {
+      display: none;   /* 처음에는 숨어 있다가 버튼을 누르면 나옴 */
+      position: fixed;
+      right: 25px;
+      bottom: 90px;
+      width: 340px;
+      max-height: 60vh;
+      overflow-y: auto;   /* 상품이 많으면 안에서 스크롤 */
+      background-color: #FFFFFF;
+      border: 2px solid #1E4D2B;
+      border-radius: 6px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      z-index: 21;
     }
-    /* 연락처 가게 이름 */
-    .shop-name {
-      color: white;
-      font-size: 24px;
-      letter-spacing: 3px;
-      font-weight: bold;
+    .cart-box h3 {
       margin: 0 0 15px 0;
+      font-size: 20px;
+      color: #1E4D2B;
+      letter-spacing: 2px;
+      text-align: center;
     }
-    /* 연락처 항목 한 줄 */
-    .contact-line {
-      margin: 6px 0;
+    /* 장바구니에 담긴 상품 한 줄 */
+    .cart-item {
+      border-bottom: 1px solid #E5E5E5;
+      padding: 12px 0;
+      font-size: 14px;
     }
-    /* 항목 이름 (전화, 이메일 등) */
-    .contact-label {
-      color: #A8DC9E;
+    .cart-name {
+      display: block;
+      margin-bottom: 6px;
+    }
+    .cart-price {
+      color: #1E4D2B;
       font-weight: bold;
-      margin-right: 8px;
     }
-    /* 이메일 링크 */
-    footer a {
-      color: #DFF3D8;
+    /* 개수 늘리고 줄이는 단추들 */
+    .cart-control {
+      float: right;
     }
-    /* 맨 아래 저작권 */
-    .copyright {
-      margin-top: 25px;
-      font-size: 13px;
-      color: #9CB795;
+    .cart-control button {
+      background-color: #EEF4E9;
+      border: 1px solid #A8B8A2;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+    }
+    .cart-control b {
+      margin: 0 8px;
+    }
+    .cart-control .cart-del {
+      width: auto;
+      padding: 0 8px;
+      margin-left: 8px;
+      color: #C9443A;
+    }
+    /* 합계 금액 */
+    .cart-total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      color: #1E4D2B;
+      margin: 18px 0;
+    }
+    .cart-empty {
+      text-align: center;
+      color: #999999;
+      padding: 25px 0;
+    }
+    /* 맨 아래 단추 3개 */
+    .cart-box > button {
+      border: 1px solid #1E4D2B;
+      background-color: #FFFFFF;
+      color: #1E4D2B;
+      padding: 10px 0;
+      width: 31%;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .cart-order {
+      background-color: #1E4D2B !important;
+      color: #FFFFFF !important;
+    }
+
+    /* ===== 맨 아래 (연락처) ===== */
+    footer {
+      background-color: #1E4D2B;
+      color: #D8E3D3;
+      text-align: center;
+      padding: 45px 20px;
+      font-size: 15px;
+      line-height: 2.1;
+      letter-spacing: 1px;
+    }
+    footer b {
+      color: #C9A961;
+      font-size: 18px;
+      letter-spacing: 4px;
+    }
+    footer small {
+      color: #8FA88A;
+      font-size: 12px;
+      letter-spacing: 0;
     }
   </style>
 </head>
@@ -432,549 +462,679 @@
 
   <!-- 맨 위: 쇼핑몰 이름과 한 줄 소개 -->
   <header>
-    <h1 class="eng-name">YEONNI'S FOOD</h1>
-    <p>오늘 아침에 딴 채소로 만든 산뜻한 한 그릇</p>
-    <p class="wish-count">찜한 상품 <span id="wishNumber">0</span>개</p>
+    <h1>챔프몰</h1>
+    <div class="line"></div>
+    <p>편안함을 입다, 품격을 신다</p>
   </header>
 
-  <!-- 메뉴 4개 (누르면 해당 구역으로 이동) -->
+  <!-- 메뉴 4개 (누르면 해당 자리로 이동) -->
   <nav>
-    <a href="#salad" onclick="showAll()">샐러드</a>
-    <a href="#bowl" onclick="showAll()">샐러드볼</a>
-    <a href="#burger" onclick="showAll()">샐러드버거</a>
-    <a href="#sandwich" onclick="showAll()">샌드위치</a>
-    <a href="#pizza" onclick="showAll()">샐러드피자</a>
-    <a href="#dressing" onclick="showAll()">드레싱</a>
-    <a href="#contact">고객센터</a>
+    <a href="#banner">홈</a>
+    <a href="#best">베스트</a>
+    <a href="#filter" onclick="goCategory('outer')">아우터</a>
+    <a href="#filter" onclick="goCategory('top')">상의</a>
+    <a href="#filter" onclick="goCategory('shoes')">신발</a>
+    <a href="#filter" onclick="goCategory('dance')">댄스복</a>
   </nav>
 
+
+  <!-- ============ 카테고리 고르는 버튼 ============ -->
+  <div class="filter-area" id="filter">
+    <button class="filter-btn active" id="btn-all"   onclick="showCategory('all', this)">전체</button>
+    <button class="filter-btn"        id="btn-outer" onclick="showCategory('outer', this)">아우터</button>
+    <button class="filter-btn"        id="btn-top"   onclick="showCategory('top', this)">상의</button>
+    <button class="filter-btn"        id="btn-shoes" onclick="showCategory('shoes', this)">신발</button>
+    <button class="filter-btn"        id="btn-dance" onclick="showCategory('dance', this)">댄스복</button>
+  </div>
+
   <!-- 큰 배너 -->
-  <section class="banner">
-    <img src="https://images.pexels.com/photos/33323285/pexels-photo-33323285.jpeg?auto=compress&w=1200" alt="신선한 샐러드 한 그릇">
-    <h2>첫 주문 30% 할인!</h2>
-    <p>매일 새벽 배송되는 신선한 샐러드를 만나보세요</p>
-    <button onclick="showAlert('지금 바로 할인 상품을 확인해 보세요!')">할인 상품 보러가기</button>
-  </section>
-
-  <!-- 이벤트 안내 -->
-  <section class="promo">
-    <h3>🎁 <span class="point">3개 주문하시면 1개 더!</span></h3>
-    <p>
-      상품 3개를 주문하시면 1개를 서비스로 함께 보내드립니다.<br>
-      서로 다른 메뉴여도 괜찮아요. 주문할 때 원하시는 서비스 메뉴를 적어주세요.
-    </p>
-  </section>
-
-  <!-- 검색창 (상품 목록 위, 가운데) -->
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="상품 이름 검색" oninput="searchProduct()">
+  <div class="banner" id="banner">
+    <h2>2026 가을 신상 컬렉션</h2>
+    <p>지금 가입하시면 추가 할인 혜택</p>
+    <button onclick="showAlert()">컬렉션 보기</button>
   </div>
 
-  <!-- 카테고리 버튼 (누르면 그 상품만 보임) -->
-  <div class="category-box">
-    <button class="category-btn active" onclick="showCategory('all', this)">전체</button>
-    <button class="category-btn" onclick="showCategory('salad', this)">샐러드</button>
-    <button class="category-btn" onclick="showCategory('bowl', this)">샐러드볼</button>
-    <button class="category-btn" onclick="showCategory('burger', this)">샐러드버거</button>
-    <button class="category-btn" onclick="showCategory('sandwich', this)">샌드위치</button>
-    <button class="category-btn" onclick="showCategory('pizza', this)">샐러드피자</button>
-    <button class="category-btn" onclick="showCategory('dressing', this)">드레싱</button>
+
+  <!-- ============ 베스트 추천 3개 ============ -->
+  <div class="best-area">
+    <h2 id="best">BEST 3</h2>
+    <p class="best-sub">이번 주 가장 많이 찾은 상품</p>
+
+    <div class="product-list">
+
+      <div class="card best-card">
+        <div class="rank">1위</div>
+        <div class="badge">28%<small>OFF</small></div>
+        <img src="https://images.unsplash.com/photo-1615310748170-29d7088865ad?w=600&h=600&fit=crop" alt="실켓 코튼 폴로 셔츠">
+        <h3>실켓 코튼 폴로 셔츠</h3>
+        <p class="reason">전 상품 중 할인율 1위<br>사계절 입기 좋은 기본템</p>
+        <p class="old-price">109,000원</p>
+        <p class="new-price"><span class="percent">28%</span>78,000원</p>
+        <button onclick="addToCart(this)">구매하기</button>
+      </div>
+
+      <div class="card best-card">
+        <div class="rank">2위</div>
+        <div class="badge">16%<small>OFF</small></div>
+        <img src="https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?w=600&h=600&fit=crop" alt="소가죽 페니 로퍼">
+        <h3>소가죽 페니 로퍼</h3>
+        <p class="reason">부드러운 소가죽으로 발이 편함<br>정장·캐주얼 모두 잘 어울림</p>
+        <p class="old-price">259,000원</p>
+        <p class="new-price"><span class="percent">16%</span>217,000원</p>
+        <button onclick="addToCart(this)">구매하기</button>
+      </div>
+
+      <div class="card best-card">
+        <div class="rank">3위</div>
+        <div class="badge">22%<small>OFF</small></div>
+        <img src="https://images.unsplash.com/photo-1647699926980-b7d360761521?w=600&h=600&fit=crop" alt="클래식 트렌치 코트">
+        <h3>클래식 트렌치 코트</h3>
+        <p class="reason">가을에 가장 많이 팔린 아우터<br>유행을 타지 않는 디자인</p>
+        <p class="old-price">329,000원</p>
+        <p class="new-price"><span class="percent">22%</span>256,000원</p>
+        <button onclick="addToCart(this)">구매하기</button>
+      </div>
+
+    </div>
   </div>
 
-  <!-- 검색 결과가 없을 때 -->
-  <p class="no-result" id="noResult">찾으시는 상품이 없어요. 다른 이름으로 검색해 보세요.</p>
 
-  <!-- 샐러드 상품 3개 -->
-  <section class="products" id="salad">
-    <h2>인기 샐러드</h2>
-    <p class="section-desc">가볍게 즐기는 신선한 채소 한 접시</p>
-    <div class="card-box">
+  <!-- ============ 카테고리 1 : 아우터 ============ -->
+  <div class="category" id="sec-outer">
+  <h2 class="product-title" id="outer">OUTER</h2>
+  <p class="product-sub">아우터</p>
 
-      <div class="card">
-        <span class="best-tag">BEST</span>
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500" alt="닭가슴살 리코타 샐러드">
-        <h3>닭가슴살 리코타 샐러드</h3>
-        <p class="old-price">12,000원</p>
-        <p class="new-price">8,400원</p>
-        <button onclick="showAlert('닭가슴살 리코타 샐러드를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
+  <div class="product-list">
 
-      <div class="card">
-        <span class="new-tag">NEW</span>
-        <img src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=500" alt="아보카도 연어 샐러드">
-        <h3>아보카도 연어 샐러드</h3>
-        <p class="old-price">15,000원</p>
-        <p class="new-price">10,500원</p>
-        <button onclick="showAlert('아보카도 연어 샐러드를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?w=500" alt="토마토 부라타 샐러드">
-        <h3>토마토 부라타 샐러드</h3>
-        <p class="old-price">13,000원</p>
-        <p class="new-price">9,100원</p>
-        <button onclick="showAlert('토마토 부라타 샐러드를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/17303318/pexels-photo-17303318.jpeg?auto=compress&w=500" alt="크런치 오리엔탈 샐러드">
-        <h3>크런치 오리엔탈 샐러드</h3>
-        <p class="old-price">11,000원</p>
-        <p class="new-price">7,700원</p>
-        <button onclick="showAlert('크런치 오리엔탈 샐러드를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/9004736/pexels-photo-9004736.jpeg?auto=compress&w=500" alt="가든 그린 샐러드">
-        <h3>가든 그린 샐러드</h3>
-        <p class="old-price">10,000원</p>
-        <p class="new-price">7,000원</p>
-        <button onclick="showAlert('가든 그린 샐러드를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/4062511/pexels-photo-4062511.jpeg?auto=compress&w=500" alt="그릴드 치킨 시저 샐러드">
-        <h3>그릴드 치킨 시저 샐러드</h3>
-        <p class="old-price">13,000원</p>
-        <p class="new-price">9,100원</p>
-        <button onclick="showAlert('그릴드 치킨 시저 샐러드를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/19302564/pexels-photo-19302564.jpeg?auto=compress&w=500" alt="새우 시저 샐러드">
-        <h3>새우 시저 샐러드</h3>
-        <p class="old-price">16,000원</p>
-        <p class="new-price">11,200원</p>
-        <button onclick="showAlert('새우 시저 샐러드를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 샐러드볼 상품 3개 -->
-  <section class="products bowl-section" id="bowl">
-    <h2>샐러드볼</h2>
-    <p class="section-desc">한 그릇으로 든든하게, 밥 대신 먹는 샐러드볼</p>
-    <div class="card-box">
-
-      <div class="card">
-        <span class="new-tag">NEW</span>
-        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500" alt="현미 포케볼">
-        <h3>현미 포케볼</h3>
-        <p class="old-price">14,000원</p>
-        <p class="new-price">9,800원</p>
-        <button onclick="showAlert('현미 포케볼을 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1512852939750-1305098529bf?w=500" alt="퀴노아 두부볼">
-        <h3>퀴노아 두부볼</h3>
-        <p class="old-price">13,500원</p>
-        <p class="new-price">9,450원</p>
-        <button onclick="showAlert('퀴노아 두부볼을 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?w=500" alt="구운채소 곡물볼">
-        <h3>구운채소 곡물볼</h3>
-        <p class="old-price">12,500원</p>
-        <p class="new-price">8,750원</p>
-        <button onclick="showAlert('구운채소 곡물볼을 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- 샐러드버거 상품 3개 -->
-  <section class="products" id="burger">
-    <h2>샐러드버거</h2>
-    <p class="section-desc">빵보다 채소가 더 많은, 죄책감 없는 버거</p>
-    <div class="card-box">
-
-      <div class="card">
-        <span class="new-tag">NEW</span>
-        <img src="https://images.pexels.com/photos/3607284/pexels-photo-3607284.jpeg?auto=compress&w=500" alt="비트 패티 버거">
-        <h3>비트 패티 버거</h3>
-        <p class="old-price">11,000원</p>
-        <p class="new-price">7,700원</p>
-        <button onclick="showAlert('비트 패티 버거를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <span class="best-tag">BEST</span>
-        <img src="https://images.pexels.com/photos/20722067/pexels-photo-20722067.jpeg?auto=compress&w=500" alt="아보카도 흑미번 버거">
-        <h3>아보카도 흑미번 버거</h3>
-        <p class="old-price">12,500원</p>
-        <p class="new-price">8,750원</p>
-        <button onclick="showAlert('아보카도 흑미번 버거를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/10654301/pexels-photo-10654301.jpeg?auto=compress&w=500" alt="시금치번 두부 버거">
-        <h3>시금치번 두부 버거</h3>
-        <p class="old-price">11,500원</p>
-        <p class="new-price">8,050원</p>
-        <button onclick="showAlert('시금치번 두부 버거를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/20741663/pexels-photo-20741663.jpeg?auto=compress&w=500" alt="크리스피 채소 버거">
-        <h3>크리스피 채소 버거</h3>
-        <p class="old-price">10,500원</p>
-        <p class="new-price">7,350원</p>
-        <button onclick="showAlert('크리스피 채소 버거를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/6546025/pexels-photo-6546025.jpeg?auto=compress&w=500" alt="팔라펠 통밀 버거">
-        <h3>팔라펠 통밀 버거</h3>
-        <p class="old-price">12,000원</p>
-        <p class="new-price">8,400원</p>
-        <button onclick="showAlert('팔라펠 통밀 버거를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 샐러드 샌드위치 상품 5개 -->
-  <section class="products bowl-section" id="sandwich">
-    <h2>샐러드 샌드위치</h2>
-    <p class="section-desc">채소를 가득 넣어 든든한 한 끼 샌드위치</p>
-    <div class="card-box">
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/9012028/pexels-photo-9012028.jpeg?auto=compress&w=500" alt="아보카도 새싹 샌드위치">
-        <h3>아보카도 새싹 샌드위치</h3>
-        <p class="old-price">9,500원</p>
-        <p class="new-price">6,650원</p>
-        <button onclick="showAlert('아보카도 새싹 샌드위치를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <span class="best-tag">BEST</span>
-        <img src="https://images.pexels.com/photos/6169449/pexels-photo-6169449.jpeg?auto=compress&w=500" alt="그릴 치킨 사워도우 샌드위치">
-        <h3>그릴 치킨 사워도우</h3>
-        <p class="old-price">12,000원</p>
-        <p class="new-price">8,400원</p>
-        <button onclick="showAlert('그릴 치킨 사워도우 샌드위치를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/30910204/pexels-photo-30910204.jpeg?auto=compress&w=500" alt="통곡물 채소 샌드위치">
-        <h3>통곡물 채소 샌드위치</h3>
-        <p class="old-price">9,000원</p>
-        <p class="new-price">6,300원</p>
-        <button onclick="showAlert('통곡물 채소 샌드위치를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <span class="new-tag">NEW</span>
-        <img src="https://images.pexels.com/photos/6327138/pexels-photo-6327138.jpeg?auto=compress&w=500" alt="아보카도 오픈 샌드위치">
-        <h3>아보카도 오픈 샌드위치</h3>
-        <p class="old-price">10,000원</p>
-        <p class="new-price">7,000원</p>
-        <button onclick="showAlert('아보카도 오픈 샌드위치를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/28396784/pexels-photo-28396784.jpeg?auto=compress&w=500" alt="바게트 채소 샌드위치">
-        <h3>바게트 채소 샌드위치</h3>
-        <p class="old-price">11,000원</p>
-        <p class="new-price">7,700원</p>
-        <button onclick="showAlert('바게트 채소 샌드위치를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 샐러드 피자 상품 3개 -->
-  <section class="products" id="pizza">
-    <h2>샐러드 피자</h2>
-    <p class="section-desc">갓 구운 도우 위에 신선한 채소를 듬뿍</p>
-    <div class="card-box">
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/11654221/pexels-photo-11654221.jpeg?auto=compress&w=500" alt="루꼴라 토마토 피자">
-        <h3>루꼴라 토마토 피자</h3>
-        <p class="old-price">18,000원</p>
-        <p class="new-price">12,600원</p>
-        <button onclick="showAlert('루꼴라 토마토 피자를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <span class="new-tag">NEW</span>
-        <img src="https://images.pexels.com/photos/37604434/pexels-photo-37604434.jpeg?auto=compress&w=500" alt="부라타 루꼴라 피자">
-        <h3>부라타 루꼴라 피자</h3>
-        <p class="old-price">21,000원</p>
-        <p class="new-price">14,700원</p>
-        <button onclick="showAlert('부라타 루꼴라 피자를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/6697470/pexels-photo-6697470.jpeg?auto=compress&w=500" alt="선드라이 토마토 피자">
-        <h3>선드라이 토마토 피자</h3>
-        <p class="old-price">19,000원</p>
-        <p class="new-price">13,300원</p>
-        <button onclick="showAlert('선드라이 토마토 피자를 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 드레싱 상품 3개 -->
-  <section class="products bowl-section" id="dressing">
-    <h2>드레싱</h2>
-    <p class="section-desc">집에서도 가게 맛 그대로, 직접 만든 수제 드레싱</p>
-    <div class="card-box">
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/10060235/pexels-photo-10060235.jpeg?auto=compress&w=500" alt="발사믹 드레싱">
-        <h3>발사믹 드레싱</h3>
-        <p class="old-price">8,000원</p>
-        <p class="new-price">5,600원</p>
-        <button onclick="showAlert('발사믹 드레싱을 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/1332313/pexels-photo-1332313.jpeg?auto=compress&w=500" alt="요거트 어니언 드레싱">
-        <h3>요거트 어니언 드레싱</h3>
-        <p class="old-price">8,500원</p>
-        <p class="new-price">5,950원</p>
-        <button onclick="showAlert('요거트 어니언 드레싱을 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/17942046/pexels-photo-17942046.jpeg?auto=compress&w=500" alt="오리엔탈 참깨 드레싱">
-        <h3>오리엔탈 참깨 드레싱</h3>
-        <p class="old-price">9,000원</p>
-        <p class="new-price">6,300원</p>
-        <button onclick="showAlert('오리엔탈 참깨 드레싱을 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=500" alt="레몬 올리브 드레싱">
-        <h3>레몬 올리브 드레싱</h3>
-        <p class="old-price">9,500원</p>
-        <p class="new-price">6,650원</p>
-        <button onclick="showAlert('레몬 올리브 드레싱을 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-      <div class="card">
-        <img src="https://images.pexels.com/photos/12203617/pexels-photo-12203617.jpeg?auto=compress&w=500" alt="홀그레인 머스터드 드레싱">
-        <h3>홀그레인 머스터드 드레싱</h3>
-        <p class="old-price">8,800원</p>
-        <p class="new-price">6,160원</p>
-        <button onclick="showAlert('홀그레인 머스터드 드레싱을 장바구니에 담았어요!')">장바구니 담기</button>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- 쇼핑몰 소개 -->
-  <section class="about">
-    <h2>연니네 푸드는 이렇게 만듭니다</h2>
-    <p class="about-desc">
-      미리 만들어 두고 파는 샐러드가 아닙니다.<br>
-      주문을 받은 뒤에 그날 쓸 재료를 사고, 하나하나 손질해서, 정성껏 만들어 보내드립니다.<br>
-      그래서 조금 늦지만, 그만큼 신선합니다.
-    </p>
-
-    <div class="step-box">
-
-      <div class="step">
-        <span class="step-num">1</span>
-        <h3>재료 구입</h3>
-        <p>주문을 확인한 뒤<br>그날 필요한 채소를<br>새로 사 옵니다.</p>
-      </div>
-
-      <div class="step">
-        <span class="step-num">2</span>
-        <h3>손질</h3>
-        <p>씻고 다듬어<br>먹기 좋은 크기로<br>준비합니다.</p>
-      </div>
-
-      <div class="step">
-        <span class="step-num">3</span>
-        <h3>만들기</h3>
-        <p>주문하신 메뉴대로<br>담아서 포장해<br>보내드립니다.</p>
-      </div>
-
+    <div class="card">
+      <div class="badge">7%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=500&h=500&fit=crop" alt="캐시미어 블렌드 하프 코트">
+      <h3>캐시미어 블렌드 하프 코트</h3>
+      <p class="old-price">498,000원</p>
+      <p class="new-price"><span class="percent">7%</span>463,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
     </div>
 
-    <p class="delivery-note">
-      주문 후 받아보시기까지 <span class="days">3일</span>이 걸립니다.<br>
-      재료를 사고 손질해서 만드는 과정을 모두 거치기 때문입니다.
-    </p>
-  </section>
+    <div class="card">
+      <div class="badge">9%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1669575903350-9a349b411810?w=500&h=500&fit=crop" alt="이탈리안 울 더블 코트">
+      <h3>이탈리안 울 더블 코트</h3>
+      <p class="old-price">398,000원</p>
+      <p class="new-price"><span class="percent">9%</span>362,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">22%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1647699926980-b7d360761521?w=500&h=500&fit=crop" alt="클래식 트렌치 코트">
+      <h3>클래식 트렌치 코트</h3>
+      <p class="old-price">329,000원</p>
+      <p class="new-price"><span class="percent">22%</span>256,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">19%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1608635680046-aebf91c1a9c8?w=500&h=500&fit=crop" alt="구스다운 경량 패딩">
+      <h3>구스다운 경량 패딩</h3>
+      <p class="old-price">289,000원</p>
+      <p class="new-price"><span class="percent">19%</span>234,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">15%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1620247405612-18f042ea68cf?w=500&h=500&fit=crop" alt="네이비 울 블레이저">
+      <h3>네이비 울 블레이저</h3>
+      <p class="old-price">269,000원</p>
+      <p class="new-price"><span class="percent">15%</span>228,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">16%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1619603364937-8d7af41ef206?w=500&h=500&fit=crop" alt="램스울 니트 가디건">
+      <h3>램스울 니트 가디건</h3>
+      <p class="old-price">179,000원</p>
+      <p class="new-price"><span class="percent">16%</span>150,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">21%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&h=500&fit=crop" alt="기모 후드 집업">
+      <h3>기모 후드 집업</h3>
+      <p class="old-price">69,000원</p>
+      <p class="new-price"><span class="percent">21%</span>54,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">25%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1611817757591-c3f345024273?w=500&h=500&fit=crop" alt="베이직 스웨트 후디">
+      <h3>베이직 스웨트 후디</h3>
+      <p class="old-price">55,000원</p>
+      <p class="new-price"><span class="percent">25%</span>41,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">8%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1564557287817-3785e38ec1f5?w=500&h=500&fit=crop" alt="캐주얼 집업 자켓">
+      <h3>캐주얼 집업 자켓</h3>
+      <p class="old-price">79,000원</p>
+      <p class="new-price"><span class="percent">8%</span>72,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+  </div>
+  <a href="#filter" class="top-button">맨 위로 ↑</a>
+  </div><!-- 카테고리 끝 -->
+
+
+  <!-- ============ 카테고리 2 : 상의 ============ -->
+  <div class="category" id="sec-top">
+  <h2 class="product-title" id="top">TOP</h2>
+  <p class="product-sub">상의</p>
+
+  <div class="product-list">
+
+    <div class="card">
+      <div class="badge">7%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1574201635302-388dd92a4c3f?w=500&h=500&fit=crop" alt="캐시미어 크루넥 니트">
+      <h3>캐시미어 크루넥 니트</h3>
+      <p class="old-price">219,000원</p>
+      <p class="new-price"><span class="percent">7%</span>203,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">8%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1631541909061-71e349d1f203?w=500&h=500&fit=crop" alt="메리노 울 터틀넥">
+      <h3>메리노 울 터틀넥</h3>
+      <p class="old-price">159,000원</p>
+      <p class="new-price"><span class="percent">8%</span>146,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">18%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1601379327928-bedfaf9da2d0?w=500&h=500&fit=crop" alt="프리미엄 옥스퍼드 셔츠">
+      <h3>프리미엄 옥스퍼드 셔츠</h3>
+      <p class="old-price">119,000원</p>
+      <p class="new-price"><span class="percent">18%</span>97,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">28%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1615310748170-29d7088865ad?w=500&h=500&fit=crop" alt="실켓 코튼 폴로 셔츠">
+      <h3>실켓 코튼 폴로 셔츠</h3>
+      <p class="old-price">109,000원</p>
+      <p class="new-price"><span class="percent">28%</span>78,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">7%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1595026525047-dfa997df8a4a?w=500&h=500&fit=crop" alt="하이넥 케이블 니트">
+      <h3>하이넥 케이블 니트</h3>
+      <p class="old-price">189,000원</p>
+      <p class="new-price"><span class="percent">7%</span>175,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">19%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1602706294170-1fed8eecd9f9?w=500&h=500&fit=crop" alt="헤링본 니트 베스트">
+      <h3>헤링본 니트 베스트</h3>
+      <p class="old-price">139,000원</p>
+      <p class="new-price"><span class="percent">19%</span>112,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">20%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=500&h=500&fit=crop" alt="코튼 기본 반팔 티셔츠">
+      <h3>코튼 기본 반팔 티셔츠</h3>
+      <p class="old-price">19,000원</p>
+      <p class="new-price"><span class="percent">20%</span>15,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">22%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&h=500&fit=crop" alt="무지 라운드넥 티셔츠">
+      <h3>무지 라운드넥 티셔츠</h3>
+      <p class="old-price">25,000원</p>
+      <p class="new-price"><span class="percent">22%</span>19,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">5%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&h=500&fit=crop" alt="코튼 긴팔 티셔츠">
+      <h3>코튼 긴팔 티셔츠</h3>
+      <p class="old-price">32,000원</p>
+      <p class="new-price"><span class="percent">5%</span>30,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+  </div>
+  <a href="#filter" class="top-button">맨 위로 ↑</a>
+  </div><!-- 카테고리 끝 -->
+
+
+  <!-- ============ 카테고리 3 : 신발 ============ -->
+  <div class="category" id="sec-shoes">
+  <h2 class="product-title" id="shoes">SHOES</h2>
+  <p class="product-sub">신발</p>
+
+  <div class="product-list">
+
+    <div class="card">
+      <div class="badge">16%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1605733160314-4fc7dac4bb16?w=500&h=500&fit=crop" alt="소가죽 페니 로퍼">
+      <h3>소가죽 페니 로퍼</h3>
+      <p class="old-price">259,000원</p>
+      <p class="new-price"><span class="percent">16%</span>217,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">16%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1638609348722-aa2a3a67db26?w=500&h=500&fit=crop" alt="굿이어 웰트 더비 슈즈">
+      <h3>굿이어 웰트 더비 슈즈</h3>
+      <p class="old-price">329,000원</p>
+      <p class="new-price"><span class="percent">16%</span>276,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">19%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1616406432452-07bc5938759d?w=500&h=500&fit=crop" alt="스웨이드 태슬 로퍼">
+      <h3>스웨이드 태슬 로퍼</h3>
+      <p class="old-price">229,000원</p>
+      <p class="new-price"><span class="percent">19%</span>185,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">8%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=500&h=500&fit=crop" alt="이탈리안 레더 첼시 부츠">
+      <h3>이탈리안 레더 첼시 부츠</h3>
+      <p class="old-price">298,000원</p>
+      <p class="new-price"><span class="percent">8%</span>274,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">13%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop" alt="프리미엄 레더 스니커즈">
+      <h3>프리미엄 레더 스니커즈</h3>
+      <p class="old-price">189,000원</p>
+      <p class="new-price"><span class="percent">13%</span>164,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">15%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&h=500&fit=crop" alt="컴포트 워킹 스니커즈">
+      <h3>컴포트 워킹 스니커즈</h3>
+      <p class="old-price">149,000원</p>
+      <p class="new-price"><span class="percent">15%</span>126,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">20%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1562105962-2fbaaf107fe3?w=500&h=500&fit=crop" alt="캔버스 하이탑 스니커즈">
+      <h3>캔버스 하이탑 스니커즈</h3>
+      <p class="old-price">49,000원</p>
+      <p class="new-price"><span class="percent">20%</span>39,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">6%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1496202703211-aa28e9500c30?w=500&h=500&fit=crop" alt="데일리 캔버스 스니커즈">
+      <h3>데일리 캔버스 스니커즈</h3>
+      <p class="old-price">39,000원</p>
+      <p class="new-price"><span class="percent">6%</span>36,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">7%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1578269174432-a8073d86c2e0?w=500&h=500&fit=crop" alt="화이트 캔버스 슈즈">
+      <h3>화이트 캔버스 슈즈</h3>
+      <p class="old-price">45,000원</p>
+      <p class="new-price"><span class="percent">7%</span>41,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+  </div>
+  <a href="#filter" class="top-button">맨 위로 ↑</a>
+  </div><!-- 카테고리 끝 -->
+
+
+  <!-- ============ 카테고리 4 : 댄스복 ============ -->
+  <div class="category" id="sec-dance">
+  <h2 class="product-title" id="dance">DANCE</h2>
+  <p class="product-sub">남녀 댄스복 · 댄스화</p>
+
+  <div class="product-list">
+
+    <div class="card">
+      <div class="badge">29%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1555489401-79c274997434?w=500&h=500&fit=crop" alt="남성 라틴 스판 셔츠">
+      <h3>남성 라틴 스판 셔츠</h3>
+      <p class="old-price">89,000원</p>
+      <p class="new-price"><span class="percent">29%</span>63,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">10%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1765632814488-52e6d0653ebe?w=500&h=500&fit=crop" alt="남성 모던 댄스 슬랙스">
+      <h3>남성 모던 댄스 슬랙스</h3>
+      <p class="old-price">119,000원</p>
+      <p class="new-price"><span class="percent">10%</span>107,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">9%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1572029848405-42f2a2bc3ccd?w=500&h=500&fit=crop" alt="남성 스포츠댄스 상의">
+      <h3>남성 스포츠댄스 상의</h3>
+      <p class="old-price">69,000원</p>
+      <p class="new-price"><span class="percent">9%</span>62,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">13%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1682760631807-71067eeea033?w=500&h=500&fit=crop" alt="여성 라틴 원피스">
+      <h3>여성 라틴 원피스</h3>
+      <p class="old-price">189,000원</p>
+      <p class="new-price"><span class="percent">13%</span>164,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">16%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1778058782671-d2e60e7ace38?w=500&h=500&fit=crop" alt="여성 레오타드 연습복">
+      <h3>여성 레오타드 연습복</h3>
+      <p class="old-price">59,000원</p>
+      <p class="new-price"><span class="percent">16%</span>49,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">13%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1631860823892-adecff18628f?w=500&h=500&fit=crop" alt="여성 프랙티스 드레스">
+      <h3>여성 프랙티스 드레스</h3>
+      <p class="old-price">99,000원</p>
+      <p class="new-price"><span class="percent">13%</span>86,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">22%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1726616297855-d7cc1ec63f2a?w=500&h=500&fit=crop" alt="여성 벨리댄스 의상">
+      <h3>여성 벨리댄스 의상</h3>
+      <p class="old-price">149,000원</p>
+      <p class="new-price"><span class="percent">22%</span>116,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">12%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1787724691140-94b3f9867e67?w=500&h=500&fit=crop" alt="남성 댄스 트레이닝 팬츠">
+      <h3>남성 댄스 트레이닝 팬츠</h3>
+      <p class="old-price">79,000원</p>
+      <p class="new-price"><span class="percent">12%</span>69,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">25%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1773708926513-c91d7d655820?w=500&h=500&fit=crop" alt="남녀공용 댄스 연습 티셔츠">
+      <h3>남녀공용 댄스 연습 티셔츠</h3>
+      <p class="old-price">39,000원</p>
+      <p class="new-price"><span class="percent">25%</span>29,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">12%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1674499317153-d713a7a8532c?w=500&h=500&fit=crop" alt="남성 모던 댄스화">
+      <h3>남성 모던 댄스화 (에나멜)</h3>
+      <p class="old-price">129,000원</p>
+      <p class="new-price"><span class="percent">12%</span>113,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">20%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1572344857518-c8f0d3d5906a?w=500&h=500&fit=crop" alt="여성 라틴 댄스화">
+      <h3>여성 라틴 댄스화 (5cm 힐)</h3>
+      <p class="old-price">89,000원</p>
+      <p class="new-price"><span class="percent">20%</span>71,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">6%<small>OFF</small></div>
+      <img src="https://images.unsplash.com/photo-1555656220-46e30749d330?w=500&h=500&fit=crop" alt="연습용 소프트 댄스화">
+      <h3>연습용 소프트 댄스화</h3>
+      <p class="old-price">39,000원</p>
+      <p class="new-price"><span class="percent">6%</span>36,000원</p>
+      <button onclick="addToCart(this)">구매하기</button>
+    </div>
+
+  </div>
+  <a href="#filter" class="top-button">맨 위로 ↑</a>
+  </div><!-- 카테고리 끝 -->
+
 
   <!-- 맨 아래: 연락처 안내 -->
-  <footer id="contact">
-    <p class="shop-name">YEONNI'S FOOD</p>
-
-    <p class="contact-line">
-      <span class="contact-label">전화</span><a href="tel:00000000000">000 0000 0000</a>
+  <footer>
+    <b>챔프몰</b>
+    <p>
+      고객센터 1588-0000<br>
+      운영시간 평일 10:00 ~ 18:00 (점심 12:00 ~ 13:00)<br>
+      이메일 help@champmall.co.kr
     </p>
-    <p class="contact-line">
-      <span class="contact-label">이메일</span>
-      <a href="mailto:yeonni@food.com">yeonni@food.com</a>
-    </p>
-    <p class="contact-line">
-      <span class="contact-label">카카오톡</span>@연니네푸드
-    </p>
-    <p class="contact-line">
-      <span class="contact-label">주소</span>서울시 강남구 테헤란로 123, 1층
-    </p>
-    <p class="contact-line">
-      <span class="contact-label">영업시간</span>평일 10:00 ~ 18:00 (주말·공휴일 휴무)
-    </p>
-
-    <p class="copyright">ⓒ 2026 연니네 푸드. All rights reserved.</p>
+    <small>상품 사진 출처 : Unsplash (무료 이용 가능)</small>
   </footer>
 
+  <!-- ============ 장바구니 ============ -->
+
+  <!-- 오른쪽 아래에 항상 떠 있는 장바구니 버튼 -->
+  <button class="cart-button" onclick="toggleCart()">
+    🛒 장바구니 <span id="cart-count">0</span>
+  </button>
+
+  <!-- 장바구니 창 (버튼을 누르면 열림) -->
+  <div class="cart-box" id="cart-box">
+    <h3>장바구니</h3>
+
+    <!-- 담긴 상품 목록이 여기에 그려짐 -->
+    <div id="cart-list"></div>
+
+    <p class="cart-total">합계 <span id="cart-total">0</span>원</p>
+
+    <button onclick="clearCart()">비우기</button>
+    <button class="cart-order" onclick="orderCart()">주문하기</button>
+    <button onclick="toggleCart()">닫기</button>
+  </div>
+
+
   <script>
-    // 버튼을 누르면 알림창을 띄우는 함수
-    function showAlert(message) {
-      alert(message);
+    // 버튼을 누르면 알림창이 뜨는 함수
+    function showAlert() {
+      alert("준비 중인 기능입니다. 곧 만나요!");
     }
 
-    // 카테고리 버튼을 누르면 그 상품 구역만 보이게 하는 함수
-    // 맨 위 메뉴를 눌렀을 때 전체 상품을 다시 보이게 하기
-    function showAll() {
-      var buttons = document.querySelectorAll(".category-btn");
-      showCategory("all", buttons[0]);
-    }
+    // 카테고리 버튼을 누르면 그 상품만 보여주는 함수
+    // name : 'all'(전체) / 'outer' / 'top' / 'shoes'
+    // btn  : 방금 누른 버튼 자기 자신
+    function showCategory(name, btn) {
 
-    // 검색창에 글자를 칠 때마다 실행됨
-    // 상품 이름에 그 글자가 들어간 상품만 보여줌
-    function searchProduct() {
-      var word = document.getElementById("searchInput").value.trim();
-      var sections = document.querySelectorAll(".products");
-      var totalFound = 0;
-
+      // 1. 카테고리 3개를 일단 모두 숨긴다
+      var sections = document.querySelectorAll(".category");
       for (var i = 0; i < sections.length; i++) {
-        var cardList = sections[i].querySelectorAll(".card");
-        var found = 0;
-
-        for (var j = 0; j < cardList.length; j++) {
-          var name = cardList[j].querySelector("h3").innerText;
-
-          if (name.indexOf(word) > -1) {
-            cardList[j].style.display = "block";
-            found = found + 1;
-          } else {
-            cardList[j].style.display = "none";
-          }
-        }
-
-        totalFound = totalFound + found;
-
-        // 찾은 상품이 하나도 없는 구역은 통째로 숨기기
-        if (found === 0) {
-          sections[i].style.display = "none";
-        } else {
-          sections[i].style.display = "block";
-        }
+        sections[i].style.display = "none";
       }
 
-      // 검색 결과가 하나도 없으면 안내문 보여주기
-      if (totalFound === 0) {
-        document.getElementById("noResult").innerText =
-          "'" + word + "' 에 해당하는 상품이 없어요. 다른 이름으로 검색해 보세요.";
-        document.getElementById("noResult").style.display = "block";
+      // 2. 고른 것만 다시 보여준다
+      if (name === "all") {
+        for (var j = 0; j < sections.length; j++) {
+          sections[j].style.display = "block";
+        }
       } else {
-        document.getElementById("noResult").style.display = "none";
+        document.getElementById("sec-" + name).style.display = "block";
       }
 
-      // 검색창을 비우면 카테고리 버튼을 '전체'로 되돌리기
-      if (word === "") {
-        var buttons = document.querySelectorAll(".category-btn");
-        for (var k = 0; k < buttons.length; k++) {
-          buttons[k].classList.remove("active");
-        }
-        buttons[0].classList.add("active");
+      // 3. 버튼 색 바꾸기 : 전부 지운 뒤, 누른 것에만 active를 붙인다
+      var buttons = document.querySelectorAll(".filter-btn");
+      for (var k = 0; k < buttons.length; k++) {
+        buttons[k].classList.remove("active");
       }
-    }
+      btn.classList.add("active");
 
-    function showCategory(id, clickedButton) {
-      // 검색 상태 지우기 (숨겨둔 상품 카드 다시 보이게)
-      document.getElementById("searchInput").value = "";
-      document.getElementById("noResult").style.display = "none";
-      var allCards = document.querySelectorAll(".card");
-      for (var c = 0; c < allCards.length; c++) {
-        allCards[c].style.display = "block";
-      }
-
-      // 모든 상품 구역을 확인해서 보일지 숨길지 정하기
-      var sections = document.querySelectorAll(".products");
-      for (var i = 0; i < sections.length; i++) {
-        if (id === "all" || sections[i].id === id) {
-          sections[i].style.display = "block";
-        } else {
-          sections[i].style.display = "none";
-        }
-      }
-
-      // 눌린 버튼만 색이 바뀌게 하기
-      var buttons = document.querySelectorAll(".category-btn");
-      for (var j = 0; j < buttons.length; j++) {
-        buttons[j].classList.remove("active");
-      }
-      clickedButton.classList.add("active");
-    }
-
-    // 상품마다 할인율을 자동으로 계산해서 노란색으로 보여주기
-    var cards = document.querySelectorAll(".card");
-
-    for (var i = 0; i < cards.length; i++) {
-      var oldBox = cards[i].querySelector(".old-price");
-      var newBox = cards[i].querySelector(".new-price");
-
-      // 글자에서 숫자만 뽑아내기 (예: "12,000원" -> 12000)
-      var oldPrice = Number(oldBox.innerText.replace(/[^0-9]/g, ""));
-      var newPrice = Number(newBox.innerText.replace(/[^0-9]/g, ""));
-
-      // 할인율 계산 (소수점은 반올림)
-      var rate = Math.round((oldPrice - newPrice) / oldPrice * 100);
-
-      // 가격 앞에 노란색 할인율 딱지 붙이기
-      newBox.innerHTML = '<span class="sale">' + rate + '%</span>' + newBox.innerText;
-    }
-
-    // 상품 카드마다 오른쪽 아래에 별(찜하기) 버튼 만들기
-    for (var k = 0; k < cards.length; k++) {
-      var heart = document.createElement("button");
-      heart.className = "heart-btn";
-      heart.innerHTML = "☆";
-      heart.onclick = toggleHeart;
-      cards[k].appendChild(heart);
-    }
-
-    // 별을 누를 때마다 3단계로 바뀜
-    // 빈 별 -> 파란 별 -> 진한 파란 별 -> 다시 빈 별
-    function toggleHeart() {
-      if (this.classList.contains("dark")) {
-        // 3단계였으면 풀기
-        this.classList.remove("dark");
-        this.innerHTML = "☆";
-      } else if (this.classList.contains("on")) {
-        // 2단계였으면 진하게
-        this.classList.remove("on");
-        this.classList.add("dark");
-        this.innerHTML = "★";
+      // 4. 상품이 있는 곳까지 부드럽게 내려간다
+      //    (버튼이 맨 위에 있어서 안 내려가면 바뀐 걸 볼 수 없음)
+      if (name === "all") {
+        document.getElementById("sec-outer").scrollIntoView();
       } else {
-        // 빈 별이었으면 채우기
-        this.classList.add("on");
-        this.innerHTML = "★";
+        document.getElementById("sec-" + name).scrollIntoView();
       }
-      countWish();
     }
 
-    // 찜한 개수를 세어서 맨 위에 보여주기 (파란 별 + 진한 별)
-    function countWish() {
-      var picked = document.querySelectorAll(".heart-btn.on, .heart-btn.dark");
-      document.getElementById("wishNumber").innerText = picked.length;
+    // 위쪽 메뉴(아우터·상의·신발)를 눌러도 같이 걸러지게 하는 함수
+    function goCategory(name) {
+      showCategory(name, document.getElementById("btn-" + name));
     }
+
+
+    /* ============ 여기부터 장바구니 ============ */
+
+    // 장바구니에 담긴 상품들을 넣어 둘 상자
+    // 상품 하나는 { name: 이름, price: 가격, count: 개수 } 모양으로 들어감
+    var cart = [];
+
+    // 숫자에 세 자리마다 쉼표를 넣어 주는 함수 (113000 -> 113,000)
+    function won(number) {
+      return number.toLocaleString();
+    }
+
+    // '구매하기'를 누르면 그 상품을 장바구니에 담는 함수
+    function addToCart(btn) {
+      var card = btn.parentElement;   // 버튼을 감싸고 있는 상품 카드
+
+      // 카드 안에서 상품 이름과 가격을 꺼낸다
+      var name = card.querySelector("h3").innerText;
+      var priceText = card.querySelector(".new-price").innerText;   // "12%113,000원"
+      var percentText = card.querySelector(".percent").innerText;   // "12%"
+
+      // 앞에 붙은 할인율과 쉼표, '원'을 지워서 숫자만 남긴다
+      priceText = priceText.replace(percentText, "");
+      var price = Number(priceText.replace(/,/g, "").replace("원", ""));
+
+      // 이미 담긴 상품이면 새로 넣지 않고 개수만 1 늘린다
+      var found = false;
+      for (var i = 0; i < cart.length; i++) {
+        if (cart[i].name === name) {
+          cart[i].count = cart[i].count + 1;
+          found = true;
+        }
+      }
+      if (found === false) {
+        cart.push({ name: name, price: price, count: 1 });
+      }
+
+      drawCart();
+      document.getElementById("cart-box").style.display = "block";   // 담으면 창을 열어 준다
+    }
+
+    // 장바구니 안의 내용을 화면에 그리는 함수
+    function drawCart() {
+      var html = "";
+      var total = 0;   // 합계 금액
+      var count = 0;   // 담긴 전체 개수
+
+      if (cart.length === 0) {
+        html = "<p class='cart-empty'>장바구니가 비어 있습니다.</p>";
+      } else {
+        for (var i = 0; i < cart.length; i++) {
+          var item = cart[i];
+          var sum = item.price * item.count;   // 이 상품의 소계
+          total = total + sum;
+          count = count + item.count;
+
+          html = html +
+            "<div class='cart-item'>" +
+              "<span class='cart-name'>" + item.name + "</span>" +
+              "<span class='cart-price'>" + won(sum) + "원</span>" +
+              "<span class='cart-control'>" +
+                "<button onclick='changeCount(" + i + ", -1)'>-</button>" +
+                "<b>" + item.count + "</b>" +
+                "<button onclick='changeCount(" + i + ", 1)'>+</button>" +
+                "<button class='cart-del' onclick='removeItem(" + i + ")'>삭제</button>" +
+              "</span>" +
+            "</div>";
+        }
+      }
+
+      document.getElementById("cart-list").innerHTML = html;
+      document.getElementById("cart-total").innerText = won(total);
+      document.getElementById("cart-count").innerText = count;
+    }
+
+    // + 나 - 를 눌러 개수를 바꾸는 함수
+    function changeCount(index, amount) {
+      cart[index].count = cart[index].count + amount;
+      if (cart[index].count <= 0) {
+        cart.splice(index, 1);   // 0개가 되면 목록에서 뺀다
+      }
+      drawCart();
+    }
+
+    // '삭제'를 누르면 그 상품만 빼는 함수
+    function removeItem(index) {
+      cart.splice(index, 1);
+      drawCart();
+    }
+
+    // '비우기'를 누르면 전부 지우는 함수
+    function clearCart() {
+      cart = [];
+      drawCart();
+    }
+
+    // '주문하기'를 누르면 뜨는 함수
+    function orderCart() {
+      if (cart.length === 0) {
+        alert("장바구니가 비어 있습니다.");
+        return;
+      }
+      alert("주문 기능은 준비 중입니다. 곧 만나요!");
+    }
+
+    // 장바구니 창을 열고 닫는 함수
+    function toggleCart() {
+      var box = document.getElementById("cart-box");
+      if (box.style.display === "block") {
+        box.style.display = "none";
+      } else {
+        box.style.display = "block";
+      }
+    }
+
+    // 화면이 처음 열릴 때 장바구니를 한 번 그려 준다
+    drawCart();
   </script>
 
 </body>
