@@ -75,7 +75,7 @@
       text-decoration: none;
       font-size: 18px;
       letter-spacing: 2px;
-      margin: 0 16px;
+      margin: 0 13px;
       padding-bottom: 5px;
     }
     /* 메뉴에 마우스를 올리면 금색 밑줄 */
@@ -115,6 +115,62 @@
     }
     .banner button:hover {
       background-color: #C9A961;  /* 마우스 올리면 금색 */
+    }
+
+    /* ===== 쇼핑몰 소개 ===== */
+    .about-area {
+      background-color: rgba(255, 255, 255, 0.92);
+      text-align: center;
+      padding: 55px 20px 50px 20px;
+      scroll-margin-top: 70px;   /* 메뉴에 가려지지 않게 여백 */
+    }
+    .about-area h2 {
+      font-size: 26px;
+      letter-spacing: 5px;
+      color: #1E4D2B;
+      margin: 0 0 18px 0;
+    }
+    /* 소개 문장 */
+    .about-text {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #5A6B55;
+      max-width: 620px;
+      margin: 0 auto 40px auto;
+    }
+    /* 자랑거리 3개를 가로로 나란히 */
+    .about-point {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;   /* 화면이 좁으면 아랫줄로 내려감 */
+      gap: 50px;
+    }
+    .about-point div {
+      width: 190px;
+    }
+    .about-point b {
+      display: block;
+      font-size: 17px;
+      color: #1E4D2B;
+      margin: 12px 0 6px 0;
+      letter-spacing: 1px;
+    }
+    .about-point p {
+      font-size: 14px;
+      color: #7A8A75;
+      margin: 0;
+      line-height: 1.6;
+    }
+    /* 동그란 금색 아이콘 */
+    .about-icon {
+      display: inline-block;
+      width: 58px;
+      height: 58px;
+      line-height: 58px;
+      border-radius: 50%;
+      background-color: #F3EEE1;
+      border: 1px solid #C9A961;
+      font-size: 26px;
     }
 
     /* ===== 베스트 추천 영역 ===== */
@@ -470,6 +526,7 @@
   <!-- 메뉴 4개 (누르면 해당 자리로 이동) -->
   <nav>
     <a href="#banner">홈</a>
+    <a href="#about">소개</a>
     <a href="#best">베스트</a>
     <a href="#filter" onclick="goCategory('outer')">아우터</a>
     <a href="#filter" onclick="goCategory('top')">상의</a>
@@ -492,6 +549,36 @@
     <h2>2026 가을 신상 컬렉션</h2>
     <p>지금 가입하시면 추가 할인 혜택</p>
     <button onclick="showAlert()">컬렉션 보기</button>
+  </div>
+
+
+  <!-- ============ 쇼핑몰 소개 ============ -->
+  <div class="about-area" id="about">
+    <h2>ABOUT</h2>
+
+    <p class="about-text">
+      챔프몰은 <b>입어서 편하고, 보기에 품격 있는 옷</b>을 고릅니다.<br>
+      기본에 충실한 의류와 신발부터 전문 댄스복까지,<br>
+      오래 두고 입을 수 있는 것만 담았습니다.
+    </p>
+
+    <div class="about-point">
+      <div>
+        <span class="about-icon">🧵</span>
+        <b>좋은 소재</b>
+        <p>캐시미어 · 소가죽 등<br>제대로 된 원단만</p>
+      </div>
+      <div>
+        <span class="about-icon">👟</span>
+        <b>편한 착용감</b>
+        <p>오래 입고 걸어도<br>불편하지 않게</p>
+      </div>
+      <div>
+        <span class="about-icon">🚚</span>
+        <b>무료 배송</b>
+        <p>5만원 이상 구매 시<br>배송비 없음</p>
+      </div>
+    </div>
   </div>
 
 
